@@ -1,16 +1,47 @@
-[gd_scene load_steps=12 format=3 uid="uid://trhs33bwxmx8"]
+[gd_scene load_steps=40 format=3 uid="uid://trhs33bwxmx8"]
 
 [ext_resource type="PackedScene" uid="uid://c80uofoal8iws" path="res://Scenes/main_menu.tscn" id="1_28c68"]
 [ext_resource type="Texture2D" uid="uid://bst4x8lml3yth" path="res://Sprites/White Square.png" id="1_bloj6"]
-[ext_resource type="Script" path="res://Scripts/MenuFader.gd" id="1_yrsyr"]
+[ext_resource type="Script" uid="uid://b2fyod35otrv3" path="res://Scripts/LookUpDown.gd" id="1_ldmr8"]
+[ext_resource type="Script" uid="uid://d1oy7ca4h5sbn" path="res://Scripts/Cutscenes.gd" id="1_qub13"]
+[ext_resource type="Script" uid="uid://b87tvdscl2k2h" path="res://Scripts/MenuFader.gd" id="1_yrsyr"]
 [ext_resource type="Texture2D" uid="uid://diufmydad4v2d" path="res://Sprites/Table1.png" id="2_0h4cv"]
-[ext_resource type="Texture2D" uid="uid://b8m2p02lhfrjf" path="res://Sprites/Layout1.png" id="3_7tpsi"]
+[ext_resource type="Texture2D" uid="uid://dij2ssm0horra" path="res://Sprites/Veil.png" id="3_erfp4"]
 [ext_resource type="Texture2D" uid="uid://bfqn24lrwx8os" path="res://Sprites/Laptop.png" id="4_02s7d"]
 [ext_resource type="Texture2D" uid="uid://dro124kyxlve0" path="res://Sprites/Doorway1.png" id="4_bk1l6"]
+[ext_resource type="Texture2D" uid="uid://cgqrj085h5yel" path="res://Sprites/Blue.png" id="4_jjv0c"]
 [ext_resource type="Texture2D" uid="uid://dphfolpc8c3wd" path="res://Sprites/Papers.png" id="5_25xe8"]
 [ext_resource type="Texture2D" uid="uid://bsxbsb2wjd7gw" path="res://Sprites/Water.png" id="6_mpp22"]
 [ext_resource type="Texture2D" uid="uid://cl4pft78o5p55" path="res://Sprites/Phone.png" id="7_7odnm"]
+[ext_resource type="Script" uid="uid://byny26wpupxqd" path="res://Scripts/Table.gd" id="7_85qyi"]
+[ext_resource type="Texture2D" uid="uid://cwjxrtx23pu8f" path="res://Sprites/Table2.png" id="8_iivbl"]
 [ext_resource type="Texture2D" uid="uid://cv4gpthjosgkm" path="res://Sprites/Rose.png" id="8_qt3jh"]
+[ext_resource type="Texture2D" uid="uid://cy5mumnlrpf3a" path="res://Sprites/Text Box 2.png" id="12_vpk0d"]
+[ext_resource type="FontFile" uid="uid://upw1rtq2vstl" path="res://Fonts/Kenney Pixel.ttf" id="13_r5msb"]
+[ext_resource type="Texture2D" uid="uid://c4njw1vfs45ym" path="res://Sprites/Pills.png" id="16_7nbq1"]
+[ext_resource type="Texture2D" uid="uid://dhdf1g8e140ke" path="res://Sprites/Clock-0001.png" id="16_exi56"]
+[ext_resource type="Script" uid="uid://b6dbw0mxlt0sn" path="res://Scripts/Clock.gd" id="16_mg4q0"]
+[ext_resource type="Texture2D" uid="uid://d34glvqxm47kq" path="res://Sprites/Clock-0002.png" id="17_6uxt2"]
+[ext_resource type="Texture2D" uid="uid://bqg1p8s18nw3n" path="res://Sprites/Sim Card.png" id="17_7t8sx"]
+[ext_resource type="Texture2D" uid="uid://chcgxb4xw4r23" path="res://Sprites/Layout2.png" id="17_iivbl"]
+[ext_resource type="Texture2D" uid="uid://b0pmrifi8kcto" path="res://Sprites/Clock-0003.png" id="18_ym3tv"]
+[ext_resource type="Texture2D" uid="uid://nm3olfo75i4b" path="res://Sprites/Clock-0004.png" id="19_bwj6o"]
+[ext_resource type="Texture2D" uid="uid://dl7f61sne4i14" path="res://Sprites/Clock-0005.png" id="20_f3c8l"]
+[ext_resource type="Texture2D" uid="uid://bbhupoxcasidy" path="res://Sprites/Clock-0006.png" id="21_bu0y5"]
+[ext_resource type="Texture2D" uid="uid://befo3xce8sijy" path="res://Sprites/Clock-0007.png" id="22_6a4tp"]
+[ext_resource type="Texture2D" uid="uid://clyvrtytwa3rg" path="res://Sprites/Clock-0008.png" id="23_631el"]
+[ext_resource type="Texture2D" uid="uid://vmsw8u64oytm" path="res://Sprites/Clock-0009.png" id="24_vs120"]
+[ext_resource type="Texture2D" uid="uid://d2sflh71k04h8" path="res://Sprites/Clock-0010.png" id="25_v2cs8"]
+[ext_resource type="Texture2D" uid="uid://curxpmfvnr7qw" path="res://Sprites/Clock-0011.png" id="26_32sfa"]
+[ext_resource type="Texture2D" uid="uid://dpamd0kdcpo2f" path="res://Sprites/Clock-0012.png" id="27_titue"]
+[ext_resource type="Texture2D" uid="uid://lgelvs5lq3fj" path="res://Sprites/Clock-0013.png" id="28_tt7mg"]
+[ext_resource type="Texture2D" uid="uid://bvr1q1vi0unvv" path="res://Sprites/Clock-0014.png" id="29_htg8p"]
+[ext_resource type="Texture2D" uid="uid://c73vjn0m0anoo" path="res://Sprites/Clock-0015.png" id="30_jcvim"]
+[ext_resource type="Texture2D" uid="uid://coao2pjcrux6j" path="res://Sprites/Clock-0016.png" id="31_fnkle"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ckgb"]
+font = ExtResource("13_r5msb")
+font_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Control"]
 texture_filter = 1
@@ -23,51 +54,155 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Cutscenes" type="Node" parent="." node_paths=PackedStringArray("table", "lookUpDown", "label", "textBox", "items1", "items2")]
+script = ExtResource("1_qub13")
+table = NodePath("../BG/Table")
+lookUpDown = NodePath("../LookUpDown")
+label = NodePath("../BG/TextureRect/Label")
+textBox = NodePath("../BG/TextureRect")
+items1 = NodePath("../BG/Items")
+items2 = NodePath("../BG/Items2")
+startDialogue = Array[String](["The company is being restructured.", "Your position is a redundancy.", "Pack your things."])
+loseDialogue = Array[String](["You're under arrest for fraud!"])
+
+[node name="LookUpDown" type="Node" parent="." node_paths=PackedStringArray("parent")]
+script = ExtResource("1_ldmr8")
+parent = NodePath("../BG")
+
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(0, -612)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("4_bk1l6")
 
-[node name="Table" type="Sprite2D" parent="."]
-scale = Vector2(4.5, 4.5)
+[node name="Veil" type="Sprite2D" parent="BG"]
+position = Vector2(12, 12.5)
+texture = ExtResource("3_erfp4")
+
+[node name="Blue" type="Sprite2D" parent="BG"]
+visible = false
+position = Vector2(0, 10)
+texture = ExtResource("4_jjv0c")
+
+[node name="Table2" type="Sprite2D" parent="BG"]
+position = Vector2(0, 136)
 texture = ExtResource("2_0h4cv")
 
-[node name="Layout" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("3_7tpsi")
+[node name="Table" type="Sprite2D" parent="BG"]
+position = Vector2(0, 136)
+texture = ExtResource("2_0h4cv")
+script = ExtResource("7_85qyi")
+textures = Array[Texture]([ExtResource("2_0h4cv"), ExtResource("8_iivbl")])
 
-[node name="Items" type="Node2D" parent="." node_paths=PackedStringArray("openButtons")]
+[node name="Items" type="Node2D" parent="BG" node_paths=PackedStringArray("openButtons")]
 visible = false
+position = Vector2(0, 136)
+scale = Vector2(0.222222, 0.222222)
 script = ExtResource("1_yrsyr")
-openButtons = [NodePath("../Main Menu/Button")]
+openButtons = [NodePath("../../Main Menu/Button")]
 isOpen = false
 lerpValue = 0.0
 
-[node name="Laptop" type="Sprite2D" parent="Items"]
+[node name="Laptop" type="Sprite2D" parent="BG/Items"]
 position = Vector2(4, -42)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("4_02s7d")
 
-[node name="Papers" type="Sprite2D" parent="Items"]
+[node name="Papers" type="Sprite2D" parent="BG/Items"]
 position = Vector2(412, -124)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("5_25xe8")
 
-[node name="Water" type="Sprite2D" parent="Items"]
+[node name="Water" type="Sprite2D" parent="BG/Items"]
 position = Vector2(385, 184)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("6_mpp22")
 
-[node name="Phone" type="Sprite2D" parent="Items"]
+[node name="Phone" type="Sprite2D" parent="BG/Items"]
 position = Vector2(-320, 155)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("7_7odnm")
 
-[node name="Rose" type="Sprite2D" parent="Items"]
+[node name="Rose" type="Sprite2D" parent="BG/Items"]
 position = Vector2(-376, -101)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("8_qt3jh")
+
+[node name="Items2" type="Node2D" parent="BG"]
+visible = false
+position = Vector2(0, 136)
+scale = Vector2(0.222222, 0.222222)
+script = ExtResource("1_yrsyr")
+isOpen = false
+lerpValue = 0.0
+
+[node name="Laptop" type="Sprite2D" parent="BG/Items2"]
+position = Vector2(4, -42)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("4_02s7d")
+
+[node name="Clock" type="Sprite2D" parent="BG/Items2"]
+position = Vector2(-322, -126)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("16_exi56")
+script = ExtResource("16_mg4q0")
+textures = Array[Texture]([ExtResource("16_exi56"), ExtResource("17_6uxt2"), ExtResource("18_ym3tv"), ExtResource("19_bwj6o"), ExtResource("20_f3c8l"), ExtResource("21_bu0y5"), ExtResource("22_6a4tp"), ExtResource("23_631el"), ExtResource("24_vs120"), ExtResource("25_v2cs8"), ExtResource("26_32sfa"), ExtResource("27_titue"), ExtResource("28_tt7mg"), ExtResource("29_htg8p"), ExtResource("30_jcvim"), ExtResource("31_fnkle")])
+
+[node name="Sim Card" type="Sprite2D" parent="BG/Items2"]
+position = Vector2(-328, 67.0001)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("17_7t8sx")
+
+[node name="Pills" type="Sprite2D" parent="BG/Items2"]
+position = Vector2(380, -103)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("16_7nbq1")
+
+[node name="Water" type="Sprite2D" parent="BG/Items2"]
+position = Vector2(326, 184)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("6_mpp22")
+
+[node name="Phone" type="Sprite2D" parent="BG/Items2"]
+position = Vector2(-351, 200)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("7_7odnm")
+
+[node name="Rose" type="Sprite2D" parent="BG/Items2"]
+position = Vector2(-448, -101)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("8_qt3jh")
+
+[node name="Layout" type="Sprite2D" parent="BG"]
+visible = false
+position = Vector2(0, 136)
+texture = ExtResource("17_iivbl")
+
+[node name="TextureRect" type="NinePatchRect" parent="BG"]
+offset_left = 35.3333
+offset_top = -57.1111
+offset_right = 122.333
+offset_bottom = 17.8889
+texture = ExtResource("12_vpk0d")
+region_rect = Rect2(0, 0, 29, 25)
+
+[node name="Label" type="Label" parent="BG/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -31.5
+offset_right = 99.5
+offset_bottom = 94.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+label_settings = SubResource("LabelSettings_3ckgb")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Credits" type="Control" parent="." node_paths=PackedStringArray("openButtons", "closeButtons", "childButtons")]
 visible = false
@@ -144,5 +279,9 @@ shortcut_keys_enabled = false
 [node name="Main Menu" parent="." node_paths=PackedStringArray("openButtons") instance=ExtResource("1_28c68")]
 layout_mode = 1
 openButtons = [NodePath("../Credits/Button")]
+
+[connection signal="cutscene_ended" from="Cutscenes" to="BG/Items2/Clock" method="_on_cutscenes_cutscene_ended"]
+[connection signal="pressed" from="Main Menu/Button" to="Cutscenes" method="_on_button_pressed"]
+[connection signal="pressed" from="Main Menu/Button" to="LookUpDown" method="DelayToggleLook" binds= [2.0]]
 
 [editable path="Main Menu"]
