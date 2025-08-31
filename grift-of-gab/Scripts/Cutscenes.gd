@@ -11,6 +11,7 @@ var currGameState : int = 0
 @export var textBox : CanvasItem
 @export var items1 : Node2D
 @export var items2 : Node2D
+@export var characters : Array[Node2D]
 
 @export var alphaValue : float = 0.0
 @export var fadeSpeed : float = 4.0
@@ -105,20 +106,33 @@ func _on_button_pressed() -> void:
 func play_cutscene(gameState : int):
 	if (gameState == 0):
 		setDialogue = startDialogue
+		characters[0].visible = true
+		characters[1].visible = false
 	
 	if (gameState == 1):
 		setDialogue = loseDialogue
+		characters[0].visible = false
+		characters[1].visible = true
 	
-	reset_variables()
 	currGameState = gameState
+	reset_variables()
 
 func reset_variables():
+	currState = StateEnum.LookUp
 	alphaValue = 0.0
-	fadeSpeed = 4.0
 	index = 0
 	charIndex = -1
 	charTimer = 0.0
-	charSpeed = 40.0
 	displayString = ""
 	delayTimer = 0.0
-	delayTime = 0.25
+	
+	if (currGameState == 1):
+		lookUpDown.isLookingUp = true
+	
+	print(currGameState)
+	print(lookUpDown.isLookingUp)
+
+
+func _on_clock_time_up() -> void:
+	print("Play lose cutscene")
+	play_cutscene(1)

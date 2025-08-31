@@ -54,7 +54,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Cutscenes" type="Node" parent="." node_paths=PackedStringArray("table", "lookUpDown", "label", "textBox", "items1", "items2")]
+[node name="Cutscenes" type="Node" parent="." node_paths=PackedStringArray("table", "lookUpDown", "label", "textBox", "items1", "items2", "characters")]
 script = ExtResource("1_qub13")
 table = NodePath("../BG/Table")
 lookUpDown = NodePath("../LookUpDown")
@@ -62,6 +62,7 @@ label = NodePath("../BG/TextureRect/Label")
 textBox = NodePath("../BG/TextureRect")
 items1 = NodePath("../BG/Items")
 items2 = NodePath("../BG/Items2")
+characters = [NodePath("../BG/Veil"), NodePath("../BG/Blue")]
 startDialogue = Array[String](["The company is being restructured.", "Your position is a redundancy.", "Pack your things."])
 loseDialogue = Array[String](["You're under arrest for fraud!"])
 
@@ -281,6 +282,7 @@ layout_mode = 1
 openButtons = [NodePath("../Credits/Button")]
 
 [connection signal="cutscene_ended" from="Cutscenes" to="BG/Items2/Clock" method="_on_cutscenes_cutscene_ended"]
+[connection signal="time_up" from="BG/Items2/Clock" to="Cutscenes" method="_on_clock_time_up"]
 [connection signal="pressed" from="Main Menu/Button" to="Cutscenes" method="_on_button_pressed"]
 [connection signal="pressed" from="Main Menu/Button" to="LookUpDown" method="DelayToggleLook" binds= [2.0]]
 

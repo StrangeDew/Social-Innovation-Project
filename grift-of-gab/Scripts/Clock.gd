@@ -12,6 +12,8 @@ var duration : float = 128.0
 
 var currIndex : int = 0
 
+signal time_up
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -32,9 +34,11 @@ func _process(delta: float) -> void:
 			timer += delta
 			currIndex = timer * (textures.size() / duration)
 		else:
-			timer = duration
-			isEnabled = false
-			currIndex = 0
+			if (isEnabled):
+				timer = duration
+				isEnabled = false
+				currIndex = 0
+				time_up.emit()
 	
 	if (currIndex < textures.size()):
 		texture = textures[floori(currIndex)]

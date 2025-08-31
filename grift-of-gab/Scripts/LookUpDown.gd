@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	
 	if (delayTimer == 0.0):
 		if (isLookingUp && lerpValue < 1.0):
-			accel -= delta * accelScale
+			accel += delta * accelScale
 			lerpValue += accel
 			
 			if (lerpValue > 1.0):
