@@ -8,7 +8,7 @@ extends Node
 
 @export var isOpen : bool = true
 @export var lerpValue : float = 1.0
-var speedScaler : float = 1.0
+@export var speedScaler : float = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

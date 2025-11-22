@@ -30,6 +30,7 @@ var currGameState : int = 0
 @export var delayTimer : float = 0.0
 @export var delayTime : float = 0.25
 
+signal cutscene_started
 signal cutscene_ended
 
 # Called when the node enters the scene tree for the first time.
@@ -93,8 +94,7 @@ func _process(delta: float) -> void:
 			items1.CloseMenu()
 			items2.OpenMenu()
 			
-			if (currGameState == 0):
-				cutscene_ended.emit()
+			cutscene_ended.emit()
 	
 	textBox.modulate.a = alphaValue
 	
@@ -115,6 +115,7 @@ func play_cutscene(gameState : int):
 		characters[1].visible = true
 	
 	currGameState = gameState
+	cutscene_started.emit()
 	reset_variables()
 
 func reset_variables():
@@ -124,15 +125,12 @@ func reset_variables():
 	charIndex = -1
 	charTimer = 0.0
 	displayString = ""
+	label.text = displayString
 	delayTimer = 0.0
 	
 	if (currGameState == 1):
 		lookUpDown.isLookingUp = true
-	
-	print(currGameState)
-	print(lookUpDown.isLookingUp)
 
 
 func _on_clock_time_up() -> void:
-	print("Play lose cutscene")
 	play_cutscene(1)

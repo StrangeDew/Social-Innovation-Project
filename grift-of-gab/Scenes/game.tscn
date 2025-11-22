@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://trhs33bwxmx8"]
+[gd_scene load_steps=53 format=3 uid="uid://trhs33bwxmx8"]
 
 [ext_resource type="PackedScene" uid="uid://c80uofoal8iws" path="res://Scenes/main_menu.tscn" id="1_28c68"]
 [ext_resource type="Texture2D" uid="uid://bst4x8lml3yth" path="res://Sprites/White Square.png" id="1_bloj6"]
@@ -38,6 +38,31 @@
 [ext_resource type="Texture2D" uid="uid://bvr1q1vi0unvv" path="res://Sprites/Clock-0014.png" id="29_htg8p"]
 [ext_resource type="Texture2D" uid="uid://c73vjn0m0anoo" path="res://Sprites/Clock-0015.png" id="30_jcvim"]
 [ext_resource type="Texture2D" uid="uid://coao2pjcrux6j" path="res://Sprites/Clock-0016.png" id="31_fnkle"]
+[ext_resource type="Texture2D" uid="uid://bacy3dxp5oqhk" path="res://Sprites/Hand.png" id="34_bwj6o"]
+[ext_resource type="Script" uid="uid://cfxqn4ad4trf6" path="res://Scripts/ItemSelector.gd" id="35_f3c8l"]
+[ext_resource type="Script" uid="uid://bq1cjdno3xin6" path="res://Scripts/GoalTracker.gd" id="35_ym3tv"]
+[ext_resource type="Texture2D" uid="uid://c43lr5nud8j3l" path="res://Sprites/Laptop Email Screen.png" id="38_6a4tp"]
+[ext_resource type="Texture2D" uid="uid://kyv4q5aah8ma" path="res://Sprites/Button_Email.png" id="39_631el"]
+[ext_resource type="Script" uid="uid://bqbj7hc0k7vfp" path="res://Scripts/EmailMenu.gd" id="39_vs120"]
+[ext_resource type="Texture2D" uid="uid://1hilucc0i7sy" path="res://Sprites/Button_Email_Clicked.png" id="41_vs120"]
+[ext_resource type="Texture2D" uid="uid://dpcms5o1yggiu" path="res://Sprites/Sim Card_SimChangeMode.png" id="42_32sfa"]
+[ext_resource type="Script" uid="uid://dyh20l6hh5upb" path="res://Scripts/sim_card_menu.gd" id="42_titue"]
+[ext_resource type="Texture2D" uid="uid://csgn5b4nnag7m" path="res://Sprites/Phone_SimChangeMode.png" id="43_titue"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6uxt2"]
+font = ExtResource("13_r5msb")
+font_size = 90
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_631el"]
+font = ExtResource("13_r5msb")
+font_size = 32
+font_color = Color(0.380392, 0.0627451, 0.635294, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6a4tp"]
+font = ExtResource("13_r5msb")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3ckgb"]
 font = ExtResource("13_r5msb")
@@ -141,12 +166,13 @@ position = Vector2(4, -42)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("4_02s7d")
 
-[node name="Clock" type="Sprite2D" parent="BG/Items2"]
+[node name="Clock" type="Sprite2D" parent="BG/Items2" node_paths=PackedStringArray("goalTracker")]
 position = Vector2(-322, -126)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("16_exi56")
 script = ExtResource("16_mg4q0")
 textures = Array[Texture]([ExtResource("16_exi56"), ExtResource("17_6uxt2"), ExtResource("18_ym3tv"), ExtResource("19_bwj6o"), ExtResource("20_f3c8l"), ExtResource("21_bu0y5"), ExtResource("22_6a4tp"), ExtResource("23_631el"), ExtResource("24_vs120"), ExtResource("25_v2cs8"), ExtResource("26_32sfa"), ExtResource("27_titue"), ExtResource("28_tt7mg"), ExtResource("29_htg8p"), ExtResource("30_jcvim"), ExtResource("31_fnkle")])
+goalTracker = NodePath("../Goal Text")
 
 [node name="Sim Card" type="Sprite2D" parent="BG/Items2"]
 position = Vector2(-328, 67.0001)
@@ -172,6 +198,138 @@ texture = ExtResource("7_7odnm")
 position = Vector2(-448, -101)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("8_qt3jh")
+
+[node name="Hand" type="Sprite2D" parent="BG/Items2" node_paths=PackedStringArray("options", "menus")]
+unique_name_in_owner = true
+position = Vector2(0, 524)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("34_bwj6o")
+script = ExtResource("35_f3c8l")
+options = [NodePath("../Laptop"), NodePath("../Sim Card"), NodePath("../Phone")]
+optionSizes = Array[float]([40.0, 5.0, 5.0])
+offsets = Array[float]([200.0, 100.0, 100.0])
+menus = [NodePath("../Email Menu"), NodePath("../Sim Card Menu")]
+
+[node name="Goal Text" type="Label" parent="BG/Items2"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -229.0
+offset_right = 118.0
+offset_bottom = -88.0002
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bills
+$0 / $999"
+label_settings = SubResource("LabelSettings_6uxt2")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("35_ym3tv")
+
+[node name="Email Menu" type="Node2D" parent="BG/Items2"]
+visible = false
+script = ExtResource("1_yrsyr")
+isOpen = false
+speedScaler = 4.0
+
+[node name="Email Menu" type="TextureRect" parent="BG/Items2/Email Menu" node_paths=PackedStringArray("contentsLabel", "emailLabel")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -284.0
+offset_right = 433.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("38_6a4tp")
+script = ExtResource("39_vs120")
+contentsLabel = NodePath("Email Contents")
+emailLabel = NodePath("Email Recipient")
+
+[node name="Choice TextureButton" type="TextureButton" parent="BG/Items2/Email Menu/Email Menu"]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 134.0
+offset_right = 775.0
+offset_bottom = 178.0
+
+[node name="Send TextureButton" type="TextureButton" parent="BG/Items2/Email Menu/Email Menu"]
+layout_mode = 0
+offset_left = 633.0
+offset_top = 399.0
+offset_right = 758.0
+offset_bottom = 450.0
+texture_normal = ExtResource("39_631el")
+texture_pressed = ExtResource("41_vs120")
+texture_hover = ExtResource("39_631el")
+texture_disabled = ExtResource("39_631el")
+texture_focused = ExtResource("39_631el")
+stretch_mode = 5
+
+[node name="Email Contents" type="Label" parent="BG/Items2/Email Menu/Email Menu"]
+layout_mode = 0
+offset_left = 268.0
+offset_top = 196.0
+offset_right = 766.0
+offset_bottom = 382.0
+text = "Dear recipient,
+
+This is a placeholder email.
+Blah blah blah.
+
+Sincerely,
+Scammer"
+label_settings = SubResource("LabelSettings_631el")
+autowrap_mode = 2
+
+[node name="Email Recipient" type="Label" parent="BG/Items2/Email Menu/Email Menu"]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 133.0
+offset_right = 778.0
+offset_bottom = 180.0
+text = "email@email.com"
+label_settings = SubResource("LabelSettings_6a4tp")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sim Card Menu" type="Node2D" parent="BG/Items2"]
+visible = false
+script = ExtResource("1_yrsyr")
+
+[node name="Sim Card Menu" type="ColorRect" parent="BG/Items2/Sim Card Menu" node_paths=PackedStringArray("simCard")]
+offset_left = -576.0
+offset_top = -936.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 0.74902)
+script = ExtResource("42_titue")
+simCard = NodePath("Sim Card")
+
+[node name="Sim Card" type="TextureRect" parent="BG/Items2/Sim Card Menu/Sim Card Menu"]
+layout_mode = 0
+offset_left = 926.0
+offset_top = 936.0
+offset_right = 966.0
+offset_bottom = 976.0
+scale = Vector2(2, 2)
+texture = ExtResource("42_32sfa")
+
+[node name="Phone" type="TextureRect" parent="BG/Items2/Sim Card Menu/Sim Card Menu"]
+layout_mode = 0
+offset_left = -274.001
+offset_top = 856.0
+offset_right = -121.001
+offset_bottom = 932.0
+scale = Vector2(6, 6)
+texture = ExtResource("43_titue")
 
 [node name="Layout" type="Sprite2D" parent="BG"]
 visible = false
@@ -282,7 +440,13 @@ layout_mode = 1
 openButtons = [NodePath("../Credits/Button")]
 
 [connection signal="cutscene_ended" from="Cutscenes" to="BG/Items2/Clock" method="_on_cutscenes_cutscene_ended"]
+[connection signal="cutscene_ended" from="Cutscenes" to="BG/Items2/Goal Text" method="_on_cutscenes_cutscene_ended"]
+[connection signal="cutscene_started" from="Cutscenes" to="BG/Items2/Email Menu/Email Menu" method="_on_cutscenes_cutscene_started"]
 [connection signal="time_up" from="BG/Items2/Clock" to="Cutscenes" method="_on_clock_time_up"]
+[connection signal="visibility_changed" from="BG/Items2/Email Menu" to="BG/Items2/Email Menu/Email Menu" method="_on_email_menu_visibility_changed"]
+[connection signal="button_down" from="BG/Items2/Email Menu/Email Menu/Choice TextureButton" to="BG/Items2/Email Menu/Email Menu" method="_on_choice_texture_button_button_down"]
+[connection signal="button_down" from="BG/Items2/Email Menu/Email Menu/Send TextureButton" to="BG/Items2/Email Menu/Email Menu" method="_on_send_texture_button_button_down"]
+[connection signal="visibility_changed" from="BG/Items2/Sim Card Menu" to="BG/Items2/Sim Card Menu/Sim Card Menu" method="_on_sim_card_menu_visibility_changed"]
 [connection signal="pressed" from="Main Menu/Button" to="Cutscenes" method="_on_button_pressed"]
 [connection signal="pressed" from="Main Menu/Button" to="LookUpDown" method="DelayToggleLook" binds= [2.0]]
 

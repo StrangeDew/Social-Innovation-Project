@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @export var textures : Array[Texture]
+@export var goalTracker : Node
 
 var isEnabled : bool = false
 
@@ -38,7 +39,9 @@ func _process(delta: float) -> void:
 				timer = duration
 				isEnabled = false
 				currIndex = 0
-				time_up.emit()
+				
+				if (goalTracker.currMoney < goalTracker.goal):
+					time_up.emit()
 	
 	if (currIndex < textures.size()):
 		texture = textures[floori(currIndex)]
